@@ -565,7 +565,9 @@ CXformUtils::PexprPushGbBelowJoin
 	pexprInner->AddRef();
 	pexprScalar->AddRef();
 
-	return GPOS_NEW(mp) CExpression(mp, popJoin, pexprNewOuter, pexprInner, pexprScalar);
+    CExpression *pnew = GPOS_NEW(mp) CExpression(mp, popJoin, pexprNewOuter, pexprInner, pexprScalar);
+    return pnew;
+//    return GPOS_NEW(mp) CExpression(mp, popJoin, pexprNewOuter, pexprInner, pexprScalar);
 }
 
 //---------------------------------------------------------------------------
